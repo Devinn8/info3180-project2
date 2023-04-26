@@ -80,7 +80,7 @@ export default {
                 AuthService.handleLogout()
             }
         }
-  }
+  },
   async beforeMount(){
     let id = store.getters.getUser || localStorage.getItem('id')
     let user = await ProfileService.getUser(id)

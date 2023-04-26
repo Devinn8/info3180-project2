@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import CarService from '@/services/cars.service.js'
+import PostService from '@/services/posts.service.js'
 import AuthService from '@/services/auth.service.js'
 import TokenService from '@/services/token.service.js'
 import store from '@/store/store.js'

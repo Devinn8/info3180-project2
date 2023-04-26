@@ -20,7 +20,7 @@
 </template>
 <script>
 import { RouterLink } from "vue-router";
-import PostService from '@/services/cars.service.js'
+import PostService from '@/services/posts.service.js'
 import Post from '../components/Post.vue'
 export default {
     components: { Post },

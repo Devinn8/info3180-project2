@@ -76,6 +76,12 @@ export default {
 }
 
 .company-name {
-  font-family: 'Altoysjustpersonalonly-Italic', cursive;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  color: #fff;
+}
+
+.nav-link{
+  color: #fff!important;
+  font-weight: 600;
 }
 </style>

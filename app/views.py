@@ -5,7 +5,6 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 
-from crypt import methods
 import os
 import jwt
 from app import app, db, login_manager
@@ -212,7 +211,7 @@ def getUserPost(user_id):
 
 
 ###Create a Follow relationship between the current user and the target user.
-@app.route('/api/v1/users/<user_id>/follow', methods=['POST'])
+@app.route('/api/users/<user_id>/follow', methods=['POST'])
 @login_required
 @requires_auth
 def follow(user_id):
@@ -267,7 +266,7 @@ def getPosts():
 @app.route('/api/v1/posts/<post_id>/like', methods=['POST'])
 @login_required
 @requires_auth
-def follow(post_id):
+def like(post_id):
     try:
         # Check if the posts exists
         post = Posts.query.filter_by(id=post_id).first()
