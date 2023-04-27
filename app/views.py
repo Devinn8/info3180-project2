@@ -36,18 +36,21 @@ def index():
 ####Accepts user information and saves it to the database
 @app.route('/api/v1/register', methods = ['POST'])
 def register():
+    form = RegistrationForm()
     try:
-        form = RegistrationForm()
+        
         if request.method == "POST" and form.validate_on_submit():
-            
+           
             check_username = Users.query.filter_by(username=form.username.data).first()
             check_email = Users.query.filter_by(email=form.email.data).first()
             
+            print("Hello",check_username)
             if check_username is not None or check_email is not None:
+                
                 return jsonify({
                     "errors": ["User is in the system"]
                 }), 401
-
+            
 
             username = form.username.data
             password = form.password.data
@@ -59,6 +62,7 @@ def register():
             upload = form.photo.data
             filename = secure_filename(upload.filename)
             joined_on= datetime.now()
+            
             
             user = Users(username, password, firstname, lastname, email, location, biography, filename, joined_on)
             db.session.add(user)
@@ -78,6 +82,7 @@ def register():
             }), 201
         return jsonify(errors=form_errors(form)), 401
     except:
+        print(form.errors)
         return jsonify({ "errors": form.errors}), 500
 
 
